@@ -1,0 +1,16 @@
+// jest.config.cjs
+module.exports = {
+    testEnvironment: 'jsdom',
+    setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+    moduleNameMapper: {
+        '\\.(css|less|scss)$': 'identity-obj-proxy',
+    },
+    transform: {
+        '^.+\\.(js|jsx)$': 'babel-jest',
+    },
+    // УБРАЛ: extensionsToTreatAsEsm: ['.js'],
+    // transformIgnorePatterns остаётся
+    transformIgnorePatterns: [
+        '/node_modules/(?!@testing-library/jest-dom)',
+    ],
+};

@@ -1,0 +1,4 @@
+{
+  "GET_ALL_SHORT_ARTICLES_URL": "https://api.kumiko.pro/api/v1/articles",
+  "GET_ARTICLE_BY_ID_URL": "https://api.kumiko.pro/api/v1/articles/"
+}
