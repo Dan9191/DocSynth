@@ -1,0 +1,1 @@
+INSERT INTO tag (name) VALUES ('test-tag') ON CONFLICT DO NOTHING;

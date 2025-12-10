@@ -1,0 +1,35 @@
+server:
+  port: ${SERVER_PORT:8093}
+
+spring:
+  application:
+    name: article-service
+  r2dbc:
+    url: ${DATASOURCE_R2DBC_URL:r2dbc:postgresql://localhost:5432/test?currentSchema=article}
+    username: ${DATASOURCE_USER_NAME:test}
+    password: ${DATASOURCE_USER_PASSWORD:test}
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    schemas: article
+    default-schema: article
+    baseline-on-migrate: true
+    create-schemas: true
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/test}
+    user: ${DATASOURCE_USER_NAME:test}
+    password: ${DATASOURCE_USER_PASSWORD:test}
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info,flyway
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+  level:
+    root: INFO
